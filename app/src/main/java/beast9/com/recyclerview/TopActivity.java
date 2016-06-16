@@ -53,6 +53,7 @@ public class TopActivity extends AppCompatActivity implements Serializable{
         mascotas.add(new Mascota(R.drawable.boxer, "Boxer", 0));
         mascotas.add(new Mascota(R.drawable.aleman, "Pastor Aleman", 0));
         mascotas.add(new Mascota(R.drawable.labrador, "Labrador", 0));
+        mascotas.add(new Mascota(R.drawable.salchicha, "Salchicha", 0));
 
     }
 
