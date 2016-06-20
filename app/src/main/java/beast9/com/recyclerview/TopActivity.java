@@ -1,16 +1,16 @@
 package beast9.com.recyclerview;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import beast9.com.recyclerview.adapter.MascotaAdapter;
+import beast9.com.recyclerview.pojo.Mascota;
 
 /**
  * Created by Ian-Industries on 15/06/2016.
@@ -39,6 +39,7 @@ public class TopActivity extends AppCompatActivity implements Serializable{
         listaMascotas.setLayoutManager(llm);
 
 
+
         inicializarListaMascota();
 
         inicializarAdaptador();
@@ -59,10 +60,9 @@ public class TopActivity extends AppCompatActivity implements Serializable{
 
     public void inicializarAdaptador()
     {
-        MascotaAdapter adaptador = new MascotaAdapter(mascotas);
+        MascotaAdapter adaptador = new MascotaAdapter(mascotas, this);
         listaMascotas.setAdapter(adaptador);
     }
-
 
 
 }

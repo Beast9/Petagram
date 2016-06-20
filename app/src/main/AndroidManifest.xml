@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="beast9.com.recyclerview">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,17 +17,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TopActivity"
+        <activity
+            android:name=".TopActivity"
             android:label="@string/top_name"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".MainActivity">
-            <!--Soporte para versiones 4.0 o menores-->
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+
+            <!-- Soporte para versiones 4.0 o menores -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity">
-            </meta-data>
-
+                android:value=".MainActivity"/>
         </activity>
+        <activity
+            android:name=".java_mail.DatosActivity"
+            android:label="@string/title_activity_datos"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <activity android:name=".Acerca_De"
+            android:label="Acerca de..."
+            android:theme="@android:style/Theme.Dialog"></activity>
+
+
     </application>
 
 </manifest>

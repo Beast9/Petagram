@@ -1,15 +1,18 @@
-package beast9.com.recyclerview;
+package beast9.com.recyclerview.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import beast9.com.recyclerview.pojo.Mascota;
+import beast9.com.recyclerview.R;
 
 /**
  * Created by Ian-Industries on 14/06/2016.
@@ -17,10 +20,12 @@ import java.util.ArrayList;
 public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaViewHolder>{
 
      ArrayList<Mascota> mascotas;
+    Context context;
 
-    public MascotaAdapter(ArrayList<Mascota> mascotas)
+    public MascotaAdapter(ArrayList<Mascota> mascotas, Context context)
     {
         this.mascotas = mascotas;
+        this.context = context;
     }
 
     public static class MascotaViewHolder extends RecyclerView.ViewHolder{

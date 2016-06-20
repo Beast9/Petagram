@@ -8,9 +8,15 @@
         app:showAsAction="always"
         android:icon="@drawable/star5">
     </item>
+    
+    <item
+        android:id="@+id/contacto"
+        android:title="@string/menu_contacto">
 
-    <item android:id="@+id/settings"
-        android:title="@string/menu_settings">
+    </item>
+
+    <item android:id="@+id/acercade"
+        android:title="@string/menu_acercade">
 
     </item>
 </menu>
