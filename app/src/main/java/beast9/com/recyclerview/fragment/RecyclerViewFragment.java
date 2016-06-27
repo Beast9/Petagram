@@ -14,56 +14,48 @@ import java.util.ArrayList;
 import beast9.com.recyclerview.R;
 import beast9.com.recyclerview.adapter.MascotaAdapter;
 import beast9.com.recyclerview.pojo.Mascota;
+import beast9.com.recyclerview.presentador.IRecyclerViewFragmentPresenter;
+import beast9.com.recyclerview.presentador.RecyclerViewFragmentPresenter;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecyclerViewFragment extends Fragment {
+public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragmentView{
 
     RecyclerView listaMascotas;
     ArrayList<Mascota> mascotas;
-
-    public RecyclerViewFragment() {
-        // Required empty public constructor
-    }
-
+    private IRecyclerViewFragmentPresenter presenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View v = inflater.inflate(R.layout.fragment_recycler_view, container, false);
+        View v = inflater.inflate(R.layout.fragment_recycler_view, container, false);
+
         listaMascotas = (RecyclerView)v.findViewById(R.id.rvMascotas);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
 
-        listaMascotas.setLayoutManager(llm);
-
-        inicializarListaMascota();
-        inicializarAdaptador();
+        presenter = new RecyclerViewFragmentPresenter(this,getContext());
 
         return v;
     }
 
 
-    public void inicializarListaMascota()
-    {
-        mascotas = new ArrayList<Mascota>();
-
-        mascotas.add(new Mascota(R.drawable.aleman, "Pastor Aleman", 0));
-        mascotas.add(new Mascota(R.drawable.labrador, "Labrador", 0));
-        mascotas.add(new Mascota(R.drawable.salchicha, "Salchicha", 0));
-        mascotas.add(new Mascota(R.drawable.pug, "Pug", 0));
-        mascotas.add(new Mascota(R.drawable.rottweiler, "Rottweiler", 0));
-        mascotas.add(new Mascota(R.drawable.boxer, "Boxer", 0));
-        mascotas.add(new Mascota(R.drawable.husky, "Husky Siveriano", 0));
+    @Override
+    public void generarLinerLayoutVertical() {
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        listaMascotas.setLayoutManager(llm);
     }
 
-    public void inicializarAdaptador()
-    {
+    @Override
+    public MascotaAdapter crearAdaptador(ArrayList<Mascota> mascotas) {
         MascotaAdapter adaptador = new MascotaAdapter(mascotas, getActivity());
+        return adaptador;
+    }
+
+    @Override
+    public void inicializarAdaptador(MascotaAdapter adaptador) {
         listaMascotas.setAdapter(adaptador);
     }
-
 }

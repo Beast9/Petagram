@@ -1,5 +1,6 @@
 package beast9.com.recyclerview.java_mail;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -40,10 +41,20 @@ public class DatosActivity extends AppCompatActivity {
         comentario = etComentario.getText().toString().trim();
 
         //Creating SendMail object
-        SendMail sm = new SendMail(this, nombre, correo, comentario);
+        //SendMail sm = new SendMail(this, nombre, correo, comentario);
 
         //Executing sendmail to send email
-        sm.execute();
+        // sm.execute();
+
+        //we can use this method too
+
+        Intent sendEmail = new Intent(Intent.ACTION_SEND);
+        sendEmail.setType("plain/text");
+        sendEmail.putExtra(Intent.EXTRA_EMAIL, new String[]{correo});
+        sendEmail.putExtra(Intent.EXTRA_TEXT, comentario);
+        sendEmail.putExtra(Intent.EXTRA_SUBJECT, "Mensaje enviado desde APP por " + nombre);
+        startActivity(Intent.createChooser(sendEmail, "Elige una aplicación: "));
+
 
     }
 }

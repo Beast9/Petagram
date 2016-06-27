@@ -1,5 +1,6 @@
 package beast9.com.recyclerview.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import beast9.com.recyclerview.db.ConstructorMascotas;
 import beast9.com.recyclerview.pojo.Mascota;
 import beast9.com.recyclerview.R;
 
@@ -21,6 +23,8 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
 
      ArrayList<Mascota> mascotas;
     Context context;
+
+
 
     public MascotaAdapter(ArrayList<Mascota> mascotas, Context context)
     {
@@ -53,16 +57,22 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
     }
 
     @Override
-    public void onBindViewHolder(MascotaViewHolder holder, int position) {
+    public void onBindViewHolder(final MascotaViewHolder holder, int position) {
         final Mascota mascota = mascotas.get(position);
         holder.fotoMascota.setImageResource(mascota.getFoto());
         holder.tvNombre.setText(mascota.getNombre());
         holder.tvRai.setText(String.valueOf(mascota.getRaiting()));
+
         holder.btnRai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mascota.setRaiting(mascota.getRaiting() + 1);
-                notifyDataSetChanged();
+                //mascota.setRaiting(mascota.getRaiting() + 1);
+
+                ConstructorMascotas constructorMascotas = new ConstructorMascotas(context);
+                constructorMascotas.darRaitingMascota(mascota);
+
+                holder.tvRai.setText(String.valueOf(constructorMascotas.obtenerRaitinMascota(mascota)));
+                //notifyDataSetChanged();
             }
         });
 

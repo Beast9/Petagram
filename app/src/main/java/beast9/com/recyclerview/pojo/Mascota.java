@@ -8,6 +8,7 @@ import android.os.Parcelable;
  */
 public class Mascota {
 
+    private int id;
     private int foto;
     private String nombre;
     private int raiting;
@@ -17,6 +18,18 @@ public class Mascota {
         this.foto = foto;
         this.nombre = nombre;
         this.raiting = raiting;
+    }
+
+    public Mascota() {
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getFoto() {
