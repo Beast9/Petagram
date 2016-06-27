@@ -40,6 +40,7 @@ public class DatosActivity extends AppCompatActivity {
         correo = etCorreo.getText().toString().trim();
         comentario = etComentario.getText().toString().trim();
 
+<<<<<<< HEAD
         //Creating SendMail object
         //SendMail sm = new SendMail(this, nombre, correo, comentario);
 
@@ -48,13 +49,18 @@ public class DatosActivity extends AppCompatActivity {
 
         //we can use this method too
 
+=======
+>>>>>>> origin/master
         Intent sendEmail = new Intent(Intent.ACTION_SEND);
         sendEmail.setType("plain/text");
         sendEmail.putExtra(Intent.EXTRA_EMAIL, new String[]{correo});
         sendEmail.putExtra(Intent.EXTRA_TEXT, comentario);
         sendEmail.putExtra(Intent.EXTRA_SUBJECT, "Mensaje enviado desde APP por " + nombre);
         startActivity(Intent.createChooser(sendEmail, "Elige una aplicación: "));
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 
     }
 }
