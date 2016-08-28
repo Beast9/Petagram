@@ -42,14 +42,16 @@ public class PerfilMascotaFragment extends Fragment {
         listaMascotas.setLayoutManager(llm);
 
         inicializarListaMascota();
-        inicializarAdaptador();
+        //inicializarAdaptador();
 
         return v;
     }
 
     public void inicializarListaMascota()
     {
+        /*
         mascotas = new ArrayList<Mascota>();
+
 
         mascotas.add(new Mascota(R.drawable.spike, "Pastor Aleman", 54));
         mascotas.add(new Mascota(R.drawable.spike2, "Pastor Aleman", 30));
@@ -57,6 +59,8 @@ public class PerfilMascotaFragment extends Fragment {
         mascotas.add(new Mascota(R.drawable.spike4, "Pastor Aleman", 5));
         mascotas.add(new Mascota(R.drawable.spike5, "Pastor Aleman", 2));
         mascotas.add(new Mascota(R.drawable.spike6, "Pastor Aleman", 0));
+
+        */
 
     }
 

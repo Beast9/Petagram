@@ -8,53 +8,52 @@ import android.os.Parcelable;
  */
 public class Mascota {
 
-    private int id;
-    private int foto;
-    private String nombre;
-    private int raiting;
+    private String id;
+    private String nombreCompleto;
+    private String urlFoto;
+    private int likes = 0;
 
-    public Mascota(int foto, String nombre, int raiting)
-    {
-        this.foto = foto;
-        this.nombre = nombre;
-        this.raiting = raiting;
+    public Mascota(String urlFoto, String nombreCompleto, int likes) {
+        this.urlFoto = urlFoto;
+        this.nombreCompleto = nombreCompleto;
+        this.likes = likes;
     }
 
     public Mascota() {
 
     }
 
-    public int getId() {
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
+
+    public String getUrlFoto() {
+        return urlFoto;
+    }
+
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
-
-    public int getFoto() {
-        return foto;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public int getRaiting() {
-        return raiting;
-    }
-
-    public void setFoto(int foto) {
-        this.foto = foto;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setRaiting(int raiting) {
-        this.raiting = raiting;
-    }
-
 
 }

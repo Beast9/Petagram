@@ -59,7 +59,9 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         while(registros.moveToNext())
         {
+            /*
             Mascota mascotaActual = new Mascota();
+
             mascotaActual.setId(registros.getInt(0));
             mascotaActual.setNombre(registros.getString(1));
             mascotaActual.setFoto(registros.getInt(2));
@@ -77,6 +79,7 @@ public class BaseDatos extends SQLiteOpenHelper {
             }
 
             mascotas.add(mascotaActual);
+            */
         }
 
         db.close();
